@@ -107,8 +107,20 @@ d3.json('/samples').then((data) => {
   // Use d3 to select the panel with id of `#sample-metadata`
   var PANEL = d3.select('#sample-metadata');
 
+
+    //SYLVESTER ADDED THIS
+    Object.entries(sly).forEach(s => {console.log(s)});
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result).forEach(([key, value]) => {
+      PANEL.append('h6').text(`${key.toUpperCase()}: ${value}`);
+    });
+
   // Use `.html('') to clear any existing metadata
   PANEL.html('');
+
 
   // Use `Object.entries` to add each key and value pair to the panel
   // Hint: Inside the loop, you will need to use d3 to append new
@@ -145,18 +157,7 @@ var data = [
         { range: [0, 9], color: "lavender" },
       ]
     }
-  }
-];
-
-var layout = {
-  margin: { t: 25, r: 25, l: 25, b: 25 },
-  font: { size: 12 }
-};
-
-var GAUGE = d3.select('#gauge').node();
-Plotly.newPlot(GAUGE, data, layout);
-
-} // end of buildGauge function
+]
 
 /****************************************
 *   optionChanged() function

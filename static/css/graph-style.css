@@ -1,0 +1,11 @@
+/* Your custom CSS here */
+
+.bg-royalblue {
+    background-color: royalblue;
+}
+
+.responsive-div {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+}
